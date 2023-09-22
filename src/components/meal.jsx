@@ -7,7 +7,7 @@ export default function Meal({ mealName, addMeals }) {
       <button
         onClick={() => {
           setCount(count + 1);
-          addMeals(count);
+          addMeals();
         }}
       >
         {mealName}

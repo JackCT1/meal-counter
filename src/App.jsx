@@ -15,8 +15,8 @@ function App() {
 
   const mealComponents = [];
 
-  const calculateTotalMeals = (mealCount) => {
-    setTotalMeals(totalMeals + mealCount);
+  const calculateTotalMeals = () => {
+    setTotalMeals(totalMeals + 1);
   };
 
   {
