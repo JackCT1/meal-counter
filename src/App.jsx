@@ -3,7 +3,8 @@ import "./App.css";
 import Meal from "./components/meal";
 
 function App() {
-  const [totalmeals, setTotalMeals] = useState(0);
+  const [totalMeals, setTotalMeals] = useState(0);
+
   const mealTypes = [
     "Vegetarian",
     "Vegan",
@@ -11,21 +12,31 @@ function App() {
     "Gluten-free",
     "Anything!",
   ];
+
   const mealComponents = [];
+
+  const calculateTotalMeals = (mealCount) => {
+    setTotalMeals(totalMeals + mealCount);
+  };
+
   {
     mealTypes.forEach((meal) => {
-      mealComponents.push(<Meal mealName={meal} />);
+      mealComponents.push(
+        <Meal mealName={meal} addMeals={calculateTotalMeals} />
+      );
     });
   }
+
   return (
     <>
       <h1>Meal Counts</h1>
       {mealComponents}
       <div>
         <p>Total</p>
+        <span>{totalMeals}</span>
       </div>
       <div>
-        <button>Reset</button>
+        <button onClick={() => setTotalMeals(0)}>Reset</button>
       </div>
     </>
   );

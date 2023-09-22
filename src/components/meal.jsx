@@ -1,10 +1,17 @@
 import { useState } from "react";
 
-export default function Meal(props) {
+export default function Meal({ mealName, addMeals }) {
   const [count, setCount] = useState(0);
   return (
     <div>
-      <button onClick={() => setCount(count + 1)}>{props.mealName}</button>
+      <button
+        onClick={() => {
+          setCount(count + 1);
+          addMeals(count);
+        }}
+      >
+        {mealName}
+      </button>
       <span>{count}</span>
     </div>
   );
